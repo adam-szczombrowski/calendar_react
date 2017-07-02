@@ -9,7 +9,6 @@ class AppointmentForm extends React.Component {
     this.state= {
       date: moment(),
       name: '',
-      appointments: props.appointments
     }
 
     this.handleDateChange = this.handleDateChange.bind(this);
@@ -30,6 +29,7 @@ class AppointmentForm extends React.Component {
   }
 
   handleSubmit(e) {
+    const appointment = { name: this.state.name, date: this.state.date }
     var that = this;
     fetch('/appointments', {
       method: 'POST',
@@ -37,10 +37,7 @@ class AppointmentForm extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        appointment: {
-          name: this.state.name,
-          date: this.state.date
-        }
+        appointment: appointment
       })
     }).then(function(response){
       return response.json()
@@ -54,7 +51,7 @@ class AppointmentForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input name="title" type="text" value={this.state.name} onChange={this.handleNameChange}></input>
+          <input name="name" type="text" value={this.state.name} onChange={this.handleNameChange}></input>
           <Datetime name={"date"} input={false} open={true} onChange={this.handleDateChange}/>
           <input type="submit" value="Make appointment"/>
         </form>
