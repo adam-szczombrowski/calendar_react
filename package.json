@@ -31,15 +31,18 @@
     "forever": "^0.15.3",
     "http": "*",
     "httpdispatcher": "^2.0.1",
+    "moment": "^2.18.1",
     "node-sass": "^4.5.1",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
+    "react-datetime": "^2.8.10",
     "react-dom": "^15.4.2",
     "react-webpack-rails": "^0.6.0",
     "rwr-view-helpers": "^0.2.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.15.0",
-    "webpack": "^2.3.0"
+    "webpack": "^2.3.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
     "build": "webpack -p --config webpack/production.config.js",
