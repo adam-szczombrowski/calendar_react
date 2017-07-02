@@ -1,8 +1,8 @@
 import RWR from 'react-webpack-rails';
 RWR.run();
 
-import HelloWorld from './components/hello-world';
-RWR.registerComponent('HelloWorld', HelloWorld);
+import Appointments from './components/appointments';
+RWR.registerComponent('Appointments', Appointments);
 
 if (module.hot) {
   module.hot.accept();
