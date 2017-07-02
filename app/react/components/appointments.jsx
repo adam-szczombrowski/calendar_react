@@ -8,13 +8,15 @@ class Appointments extends React.Component {
     this.state = {
       appointments: props.appointments,
     }
-
     this.addAppointment = this.addAppointment.bind(this);
   }
 
   addAppointment(app) {
+    const appointments = this.state.appointments.concat([app])
     this.setState({
-      appointments: this.state.appointments.concat([app])
+      appointments: appointments.sort(function(a,b){
+        return new Date(a.date) - new Date(b.date);
+      })
     })
   }
 
