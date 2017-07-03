@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @appointments = Appointment.order(:date)
+    @appointments = Appointment.where('date > ?', DateTime.now).order(:date)
   end
 
   def create

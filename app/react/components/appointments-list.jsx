@@ -4,7 +4,7 @@ import Appointment from './appointment';
 class AppointmentsList extends React.Component {
   render() {
     return (
-      <ul>
+      <ul className="appointments-list">
         {this.props.appointments.map(app => <Appointment key={app.id} appointment={app} />)}
       </ul>
     )

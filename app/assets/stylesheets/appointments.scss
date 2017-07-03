@@ -1,0 +1,24 @@
+.appointment {
+  border-bottom: 1px solid black;
+  &-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.appointments-list {
+  list-style-type: none;
+}
+
+.appointment-form {
+  padding-bottom: 15px;
+  padding-top: 20px;
+}
+
+.name-input {
+  margin-bottom: 5px;
+}
+
+.submit-button {
+  margin-top: 5px;
+}

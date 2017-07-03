@@ -1,13 +1,13 @@
 import React from 'react';
 import Datetime from 'react-datetime';
 import Appointments from './appointments';
-var moment = require('moment');
+var moment = require('moment-timezone');
 
 class AppointmentForm extends React.Component {
   constructor(props) {
     super(props)
     this.state= {
-      date: moment(),
+      date: moment().tz('Europe/Warsaw'),
       name: '',
     }
 
@@ -18,7 +18,7 @@ class AppointmentForm extends React.Component {
 
   handleDateChange(current_date) {
     this.setState({
-      date: current_date
+      date: current_date.tz('Europe/Warsaw')
     })
   }
 
@@ -48,12 +48,14 @@ class AppointmentForm extends React.Component {
   }
 
   render() {
+    const { date, name } = this.state;
+
     return (
-      <div>
+      <div className="appointment-form">
         <form onSubmit={this.handleSubmit}>
-          <input name="name" type="text" value={this.state.name} onChange={this.handleNameChange}></input>
-          <Datetime name={"date"} input={false} open={true} onChange={this.handleDateChange}/>
-          <input type="submit" value="Make appointment"/>
+          <input placeholder="appointment name" className="center-block name-input" type="text" onChange={this.handleNameChange}></input>
+          <Datetime value={date} dateFormat={"dddd, MMMM Do YYYY, h:mm:ss a"} input={false} open={true} onChange={this.handleDateChange}/>
+          <input type="submit" value="Make appointment" className="btn btn-success center-block submit-button"/>
         </form>
       </div>
     )
